@@ -95,7 +95,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                         patch.size(),
                         patch.start(),
                         patchII,
-                        mesh.boundaryMesh()// polyBoundaryMesh
+                        mesh.boundaryMesh(), // polyBoundaryMesh
+                        word("empty")
                     );
 
                 newPatchPtrList[patchII] = modifiedPatch.clone
@@ -114,7 +115,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                         patch.size(),
                         patch.start(),
                         patchII,
-                        mesh.boundaryMesh()// polyBoundaryMesh
+                        mesh.boundaryMesh(), // polyBoundaryMesh
+                        word("wedge")
                     );
 
                 newPatchPtrList[patchII] = modifiedPatch.clone
@@ -133,7 +135,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                         patch.size(),
                         patch.start(),
                         patchII,
-                        mesh.boundaryMesh()// polyBoundaryMesh
+                        mesh.boundaryMesh(), // polyBoundaryMesh
+                        word("cyclic")
                     );
 
                 newPatchPtrList[patchII] = modifiedPatch.clone
@@ -148,7 +151,7 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
             {
                 const processorPolyPatch modifiedPatch
                     (
-                        patch.name(),
+                        // patch.name(),
                         patch.size(),
                         patch.start(),
                         patchII,
@@ -171,7 +174,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                         patch.size(),
                         patch.start(),
                         patchII,
-                        mesh.boundaryMesh()// polyBoundaryMesh
+                        mesh.boundaryMesh(), // polyBoundaryMesh
+                        word("symmetry")
                     );
 
                 newPatchPtrList[patchII] = modifiedPatch.clone
@@ -190,7 +194,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                         patch.size(),
                         patch.start(),
                         patchII,
-                        mesh.boundaryMesh()// polyBoundaryMesh
+                        mesh.boundaryMesh(), // polyBoundaryMesh
+                        word("wall")
                     );
 
                 newPatchPtrList[patchII] = modifiedPatch.clone
@@ -221,7 +226,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
-                    mesh.boundaryMesh()
+                    mesh.boundaryMesh(),
+                    word("wall")
                 );
 
                 newPatchPtrList[patchII] = wallPatch.clone
@@ -235,7 +241,7 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
             else if (patchType == processorPolyPatch::typeName)
             {
                 const processorPolyPatch processorPatch (
-                    name,
+                    // name,
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
@@ -257,7 +263,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
-                    mesh.boundaryMesh()
+                    mesh.boundaryMesh(),
+                    word("empty")
                 );
 
                 newPatchPtrList[patchII] = emptyPatch.clone
@@ -275,7 +282,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
-                    mesh.boundaryMesh()
+                    mesh.boundaryMesh(),
+                    word("wedge")
                 );
 
                 newPatchPtrList[patchII] = wedgePatch.clone
@@ -293,7 +301,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
-                    mesh.boundaryMesh()
+                    mesh.boundaryMesh(),
+                    word("cyclic")
                 );
 
                 newPatchPtrList[patchII] = cyclicPatch.clone
@@ -311,7 +320,8 @@ void modifyPatchType(Foam::polyMesh& mesh, word name, word patchType)
                     mesh.boundaryMesh()[patchI].size() ,
                     mesh.boundaryMesh()[patchI].start() ,
                     mesh.boundaryMesh()[patchI].index() ,
-                    mesh.boundaryMesh()
+                    mesh.boundaryMesh(),
+                    word("symmetry")
                 );
 
                 newPatchPtrList[patchII] = symmetryPatch.clone
@@ -369,7 +379,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
                       patch.size(),
                       patch.start(),
                       patchII,
-                      mesh.boundaryMesh()// polyBoundaryMesh
+                      mesh.boundaryMesh(), // polyBoundaryMesh
+                      word("empty")
                   );
 
               newPatchPtrList[patchII] = modifiedPatch.clone
@@ -388,7 +399,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
                       patch.size(),
                       patch.start(),
                       patchII,
-                      mesh.boundaryMesh()// polyBoundaryMesh
+                      mesh.boundaryMesh(), // polyBoundaryMesh
+                      word("wedge")
                   );
 
               newPatchPtrList[patchII] = modifiedPatch.clone
@@ -407,7 +419,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
                       patch.size(),
                       patch.start(),
                       patchII,
-                      mesh.boundaryMesh()// polyBoundaryMesh
+                      mesh.boundaryMesh(), // polyBoundaryMesh
+                      word("cyclic")
                   );
 
               newPatchPtrList[patchII] = modifiedPatch.clone
@@ -422,7 +435,7 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
           {
               const processorPolyPatch modifiedPatch
                   (
-                      patch.name(),
+                      // patch.name(),
                       patch.size(),
                       patch.start(),
                       patchII,
@@ -445,7 +458,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
                       patch.size(),
                       patch.start(),
                       patchII,
-                      mesh.boundaryMesh()// polyBoundaryMesh
+                      mesh.boundaryMesh(), // polyBoundaryMesh
+                      word("symmetry")
                   );
 
               newPatchPtrList[patchII] = modifiedPatch.clone
@@ -464,7 +478,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
                       patch.size(),
                       patch.start(),
                       patchII,
-                      mesh.boundaryMesh()// polyBoundaryMesh
+                      mesh.boundaryMesh(), // polyBoundaryMesh
+                      word("wall")
                   );
 
               newPatchPtrList[patchII] = modifiedPatch.clone
@@ -493,7 +508,8 @@ void addNullPatch(Foam::polyMesh& mesh, const word& name)
               0,                  // size
               mesh.nFaces(),      // start
               mesh.boundaryMesh().size(),  // index
-              mesh.boundaryMesh()// polyBoundaryMesh
+              mesh.boundaryMesh(), // polyBoundaryMesh
+              word("patch")
           );
 
       newPatchPtrList[mesh.boundaryMesh().size()] = patch.clone
@@ -553,7 +569,8 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
-                          mesh.boundaryMesh()// polyBoundaryMesh
+                          mesh.boundaryMesh(), // polyBoundaryMesh
+                          word("empty")
                       );
 
                   newPatchPtrList[patchII+oneLess] = modifiedPatch.clone
@@ -572,7 +589,8 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
-                          mesh.boundaryMesh()// polyBoundaryMesh
+                          mesh.boundaryMesh(), // polyBoundaryMesh
+                          word("wedge")
                       );
 
                   newPatchPtrList[patchII+oneLess] = modifiedPatch.clone
@@ -591,7 +609,8 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
-                          mesh.boundaryMesh()// polyBoundaryMesh
+                          mesh.boundaryMesh(), // polyBoundaryMesh
+                          word("cyclic")
                       );
 
                   newPatchPtrList[patchII+oneLess] = modifiedPatch.clone
@@ -606,7 +625,7 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
               {
                   const processorPolyPatch modifiedPatch
                       (
-                          patch.name(),
+                          // patch.name(),
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
@@ -629,7 +648,8 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
-                          mesh.boundaryMesh()// polyBoundaryMesh
+                          mesh.boundaryMesh(), // polyBoundaryMesh
+                          word("symmetry")
                       );
 
                   newPatchPtrList[patchII+oneLess] = modifiedPatch.clone
@@ -648,7 +668,8 @@ void removeNullPatch(Foam::polyMesh& mesh, const word& name)
                           patch.size(),
                           patch.start(),
                           patchII+oneLess,
-                          mesh.boundaryMesh()// polyBoundaryMesh
+                          mesh.boundaryMesh(), // polyBoundaryMesh
+                          word("wall")
                       );
 
                   newPatchPtrList[patchII+oneLess] = modifiedPatch.clone
