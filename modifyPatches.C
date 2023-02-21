@@ -1,16 +1,12 @@
 /*---------------------------------------------------------------------------*\
-   II   II        II  II   Leichtweiss-Institute for Hydraulics
-  II    II  II  II   II    Dep. Hydromechanics and Coastal Eng.
- II     IIIIIIII    II     Developed by: Hisham El Safti
-IIIIII  II  II     II      Email: hsafti@gmail.com
-\*---------------------------------------------------------------------------*/
-
-/*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     |
-    \\  /    A nd           | Copyright (C) 2011 OpenFOAM Foundation
+    \\  /    A nd           | www.openfoam.com
      \\/     M anipulation  |
+-------------------------------------------------------------------------------
+    Copyright (C) 2011-2016 OpenFOAM Foundation
+    Copyright (C) 2019 OpenCFD Ltd.
 -------------------------------------------------------------------------------
 License
     This file is part of OpenFOAM.
@@ -29,13 +25,20 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Description
+    This utility is modifies "constant/polyMesh/boundary" to change patch types
+    to empty, wall, cyclic, processor, symmetry or wedge (for use with
+    gmshToFoam) and to add null patches at end of file (for use with splitMesh)
+    and remove existing null patches.
 
-This utility is modifies "constant/polyMesh/boundary" to change patch types
-to empty, wall, cyclic, processor, symmetry or wedge (for use with gmshToFoam)
-and to add null patches at end of file (for use with splitMesh) and remove
-existing null patches
+Usage
+    modifyPatches -empty frontAndBack
+    modifyPatches -null Master
 
-Developed by: Hisham El Safti hsafti@gmail.com, January 2013
+Developed by:
+    Hisham El Safti <hsafti@gmail.com>, January 2013
+
+Updated (OpenFOAMv2206) by:
+    Ali Bozorgzadeh <https://github.com/reverseila>, February, 2023
 
 \*---------------------------------------------------------------------------*/
 
